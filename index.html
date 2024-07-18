@@ -13,14 +13,22 @@
 
 <script>
    // Get access to the camera
-navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({video: true, audio: false})
     .then(function(stream) {
-        var videoElement = document.getElementById('videoElement');
-        videoElement.srcObject = stream;
+      videoElement.srcObject = stream;
+      videoElement.play();
     })
-    .catch(function(error) {
-        console.error('Error accessing the camera:', error);
+    .catch(function(err) {
+      console.log("An error occurred: " + err);
     });
+// navigator.mediaDevices.getUserMedia({ video: true })
+//     .then(function(stream) {
+//         var videoElement = document.getElementById('videoElement');
+//         videoElement.srcObject = stream;
+//     })
+//     .catch(function(error) {
+//         console.error('Error accessing the camera:', error);
+//     });
 </script>
 </body>
 </html>
